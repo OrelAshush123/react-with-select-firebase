@@ -2,22 +2,37 @@ import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import ItemList from './ItemList'
 
-const ListOfOption = ['list1', 'list2'];
+var ListOfOption = ["Select Option ... ",'רשימה מספר 1', 'רשימה מספר 2'];
 
 function App() {
-
-  const [whichList, setOption] = useState("")
-  const [items, SetItems] = useState([])
   
+  const whichList = useRef()
+  const [items_1, SetItems_1] = useState([])
+  const [items_2, SetItems_2] = useState([])
+  const [ActiveList, SetActiveList] = useState([])
+
+  function SetActive(l)
+  {
+    if(ListOfOption[0] === "Select Option ... ") 
+      ListOfOption = ListOfOption.filter(item => item !== "Select Option ... ");
+    SetActiveList(l)
+    if(whichList.current.value == "רשימה מספר 1") {
+      SetItems_1(l)
+    } else if(whichList.current.value == "רשימה מספר 2") {
+      SetItems_2(l)
+    }
+  }
 
   const ItemNameRef = useRef()
   const ItemNumRef = useRef()
-  const LOCAL_STORAGE_KEY = "app.items"
-
+  //const LOCAL_STORAGE_KEY_NUM_ONE = "app.items"
+  //const LOCAL_STORAGE_KEY_NUM_TWO = "app.items2"
+/*
   useEffect( () => {
-    const storedItems = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+    const storedItems = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_NUM_ONE))
     if(storedItems.length !== 0)
     {
+      console.log("SET",storedItems)
       SetItems(storedItems) //if storedItems is not empty
     }
     
@@ -25,18 +40,21 @@ function App() {
 
   
   useEffect( () => {
+    if(JSON.stringify(items) !== '[]')
+    {
       console.log("Save", JSON.stringify(items))
-      localStorage.setItem(LOCAL_STORAGE_KEY , JSON.stringify(items))
+      localStorage.setItem(LOCAL_STORAGE_KEY_NUM_ONE , JSON.stringify(items))
+    }
     }, [items])
-
+*/
   function Delete_Item(id) {
-    const NewItems = items.filter(item => item.id !== id);
+    const NewItems = ActiveList.filter(item => item.id !== id);
     for (let i = 0; i < NewItems.length; i++) NewItems[i].id = i
-    SetItems(NewItems)
+    SetActive(NewItems)
   }
 
   function Edit_Item(id) {
-    const NewItems = [...items]
+    const NewItems = [...ActiveList]
     const item = NewItems.find(item => item.id === id)
 
     if(ItemNameRef.current.value) item.name = ItemNameRef.current.value
@@ -44,35 +62,45 @@ function App() {
     ItemNameRef.current.value = null
     ItemNumRef.current.value = null
     item.id = id
-    SetItems(NewItems)
+    SetActive(NewItems)
   }
 
   function Add_Item(e) {
     const name = ItemNameRef.current.value
     const num = ItemNumRef.current.value
-    const len = items.length
+    const len = ActiveList.length
     if(name === '' || num === '') return
-    SetItems( prevItem => {
+    const list = ( prevItem => {
       return [...prevItem,{id:len, name: name,number: num}]
     })
+    SetActive(list)
     ItemNameRef.current.value = null
     ItemNumRef.current.value = null
   }
 
 
   const SetList = (e) => {
-    setOption(e.value)
+    whichList.current.value = e.target.value
+    if(e.target.value == "רשימה מספר 1") 
+    {
+      SetActive(items_1)
+    } else if(e.target.value == "רשימה מספר 2") {
+      SetActive(items_2)
+    } else {
+      SetActive([])
+    }
 
   }
+
   return (
     <div className='App'>
         <form>בחירה:
           <select
             id="lists"
-            value={whichList}
+            ref={whichList}
             onChange={(e)=>{SetList(e)}}
           >
-          <option>Select Option ... </option>
+
 
       	  {ListOfOption.map((tmp)=>(
             <option key={tmp}>{tmp}</option>
@@ -81,7 +109,7 @@ function App() {
         </form>
 
         <h1>רשימת קניות</h1>
-        <ItemList items={items} Edit_Item={Edit_Item} Delete_Item={Delete_Item} /> פריט:
+        <ItemList items={ActiveList} Edit_Item={Edit_Item} Delete_Item={Delete_Item} /> פריט:
         <input ref={ItemNameRef} type="testbox" /> <br/> כמות:
         <input ref={ItemNumRef} type="testbox" />
         <br/>
