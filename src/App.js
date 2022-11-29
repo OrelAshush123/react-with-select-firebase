@@ -5,6 +5,7 @@ import './App.css';
 import ItemList from './ItemList'
 
 var ListOfOption = ["Select Option ... ",'רשימה מספר 1', 'רשימה מספר 2'];
+var CHECK = false
 
 function App() {
   
@@ -73,6 +74,7 @@ function App() {
   {
     if(ListOfOption[0] === "Select Option ... ") {
       ListOfOption = ListOfOption.filter(item => item !== "Select Option ... ");
+      CHECK = true
       check()    }
 
     SetActiveList(l)
@@ -137,13 +139,19 @@ function App() {
             ))}
           </select>
         </form>
-
-        <h1>רשימת קניות</h1>
-        <ItemList items={ActiveList} Edit_Item={Edit_Item} Delete_Item={Delete_Item} /> פריט:
-        <input ref={ItemNameRef} type="testbox" /> <br/> כמות:
-        <input ref={ItemNumRef} type="testbox" />
-        <br/>
-        <input value="הוסף פריט לרשימה" onClick={Add_Item} type="button" /> 
+      { (!CHECK)? 
+      
+        <h1>בחר רשימה!</h1>
+        :
+        <div>
+          <h1>רשימת קניות</h1>
+          <ItemList items={ActiveList} Edit_Item={Edit_Item} Delete_Item={Delete_Item} /> פריט:
+          <input ref={ItemNameRef} type="testbox" /> <br/> כמות:
+          <input ref={ItemNumRef} type="testbox" />
+          <br/>
+          <input value="הוסף פריט לרשימה" onClick={Add_Item} type="button" /> 
+        </div>
+      }
     </div>
   );
 }
