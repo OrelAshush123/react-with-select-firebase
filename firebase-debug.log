@@ -1,0 +1,145 @@
+[debug] [2022-11-29T13:16:39.467Z] ----------------------------------------------------------------------
+[debug] [2022-11-29T13:16:39.471Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\user\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-11-29T13:16:39.472Z] CLI Version:   11.16.1
+[debug] [2022-11-29T13:16:39.472Z] Platform:      win32
+[debug] [2022-11-29T13:16:39.472Z] Node Version:  v16.17.0
+[debug] [2022-11-29T13:16:39.474Z] Time:          Tue Nov 29 2022 15:16:39 GMT+0200 (שעון ישראל (חורף))
+[debug] [2022-11-29T13:16:39.475Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-29T13:16:39.617Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-29T13:16:39.617Z] > authorizing via signed-in user (orel.asc11@gmail.com)
+[debug] [2022-11-29T13:16:39.618Z] [iam] checking project sal-fire for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-11-29T13:16:39.622Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/sal-fire:testIamPermissions [none]
+[debug] [2022-11-29T13:16:39.622Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/sal-fire:testIamPermissions x-goog-quota-user=projects/sal-fire
+[debug] [2022-11-29T13:16:39.623Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sal-fire:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-11-29T13:16:40.754Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/sal-fire:testIamPermissions 200
+[debug] [2022-11-29T13:16:40.755Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sal-fire:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-11-29T13:16:40.761Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sal-fire [none]
+[debug] [2022-11-29T13:16:44.198Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sal-fire 200
+[debug] [2022-11-29T13:16:44.199Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sal-fire {"projectId":"sal-fire","projectNumber":"131150866049","displayName":"SAL-FIRE","name":"projects/sal-fire","resources":{"hostingSite":"sal-fire"},"state":"ACTIVE","etag":"1_ca7fdcba-6e87-4539-bb63-7a4fad023347"}
+[info] 
+[info] === Deploying to 'sal-fire'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-11-29T13:16:44.234Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/sal-fire/versions [none]
+[debug] [2022-11-29T13:16:44.236Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/sal-fire/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-11-29T13:16:46.441Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/sal-fire/versions 200
+[debug] [2022-11-29T13:16:46.442Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/sal-fire/versions {"name":"projects/131150866049/sites/sal-fire/versions/35589efa70d78e99","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[sal-fire]: beginning deploy... 
+[info] i  hosting[sal-fire]: found 8 files in build 
+[debug] [2022-11-29T13:17:00.495Z] [hosting] uploading with 200 concurrency
+[debug] [2022-11-29T13:17:00.503Z] [hosting] hash cache [YnVpbGQ] not populated
+[debug] [2022-11-29T13:17:01.099Z] [hosting] hash cache [YnVpbGQ] stored for 8 files
+[debug] [2022-11-29T13:17:01.100Z] [hosting][hash queue][FINAL] {"max":565,"min":18,"avg":92.75,"active":0,"complete":8,"success":8,"errored":0,"retried":0,"total":8,"elapsed":584}
+[debug] [2022-11-29T13:17:01.100Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/131150866049/sites/sal-fire/versions/35589efa70d78e99:populateFiles [none]
+[debug] [2022-11-29T13:17:01.101Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/131150866049/sites/sal-fire/versions/35589efa70d78e99:populateFiles {"files":{"/404.html":"daa499dd96d8229e73235345702ba32f0793f0c8e5c0d30e40e37a5872be57aa","/asset-manifest.json":"640ab5958133859be71288b812e8caaed433d5c4e83ebf33667e75958a509584","/index.html":"2bbc664f3fd62c15cb2cb53db78134356ec27310748dccfdb73da0f69e7c7de1","/static/css/main.1d766016.css":"c1d947e556d6f0b0e2e3982f044b88bf4bd2368721c5c1eef499411454b2056e","/static/css/main.1d766016.css.map":"2d2f33f9eec66953139f395e0199aa5ca29dbc0babb5c8d529d0b6e19b044841","/static/js/main.229966a5.js.LICENSE.txt":"4ad66d76d451d95385fbb304ae28b81822e40acef41ad03291e6a2a0cdc00a06","/static/js/main.229966a5.js":"62b1fe667eed805491d5c17563c5b3afd5c9e79f62133d56c775a06962a0767e","/static/js/main.229966a5.js.map":"115d4c612be20bea60fb10f2ba4ec7d2b2e4f0ac753328bc09cffcadcba973bb"}}
+[debug] [2022-11-29T13:17:22.514Z] [populateQueue] Retrying task index 0
+[debug] [2022-11-29T13:17:22.516Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/131150866049/sites/sal-fire/versions/35589efa70d78e99:populateFiles [none]
+[debug] [2022-11-29T13:17:22.517Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/131150866049/sites/sal-fire/versions/35589efa70d78e99:populateFiles {"files":{"/404.html":"daa499dd96d8229e73235345702ba32f0793f0c8e5c0d30e40e37a5872be57aa","/asset-manifest.json":"640ab5958133859be71288b812e8caaed433d5c4e83ebf33667e75958a509584","/index.html":"2bbc664f3fd62c15cb2cb53db78134356ec27310748dccfdb73da0f69e7c7de1","/static/css/main.1d766016.css":"c1d947e556d6f0b0e2e3982f044b88bf4bd2368721c5c1eef499411454b2056e","/static/css/main.1d766016.css.map":"2d2f33f9eec66953139f395e0199aa5ca29dbc0babb5c8d529d0b6e19b044841","/static/js/main.229966a5.js.LICENSE.txt":"4ad66d76d451d95385fbb304ae28b81822e40acef41ad03291e6a2a0cdc00a06","/static/js/main.229966a5.js":"62b1fe667eed805491d5c17563c5b3afd5c9e79f62133d56c775a06962a0767e","/static/js/main.229966a5.js.map":"115d4c612be20bea60fb10f2ba4ec7d2b2e4f0ac753328bc09cffcadcba973bb"}}
+[debug] [2022-11-29T13:17:44.332Z] [populateQueue] Retrying task index 0
+[debug] [2022-11-29T13:17:44.335Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/131150866049/sites/sal-fire/versions/35589efa70d78e99:populateFiles [none]
+[debug] [2022-11-29T13:17:44.335Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/131150866049/sites/sal-fire/versions/35589efa70d78e99:populateFiles {"files":{"/404.html":"daa499dd96d8229e73235345702ba32f0793f0c8e5c0d30e40e37a5872be57aa","/asset-manifest.json":"640ab5958133859be71288b812e8caaed433d5c4e83ebf33667e75958a509584","/index.html":"2bbc664f3fd62c15cb2cb53db78134356ec27310748dccfdb73da0f69e7c7de1","/static/css/main.1d766016.css":"c1d947e556d6f0b0e2e3982f044b88bf4bd2368721c5c1eef499411454b2056e","/static/css/main.1d766016.css.map":"2d2f33f9eec66953139f395e0199aa5ca29dbc0babb5c8d529d0b6e19b044841","/static/js/main.229966a5.js.LICENSE.txt":"4ad66d76d451d95385fbb304ae28b81822e40acef41ad03291e6a2a0cdc00a06","/static/js/main.229966a5.js":"62b1fe667eed805491d5c17563c5b3afd5c9e79f62133d56c775a06962a0767e","/static/js/main.229966a5.js.map":"115d4c612be20bea60fb10f2ba4ec7d2b2e4f0ac753328bc09cffcadcba973bb"}}
+[debug] [2022-11-29T13:18:06.945Z] [populateQueue] Retrying task index 0
+[debug] [2022-11-29T13:18:06.948Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/131150866049/sites/sal-fire/versions/35589efa70d78e99:populateFiles [none]
+[debug] [2022-11-29T13:18:06.949Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/131150866049/sites/sal-fire/versions/35589efa70d78e99:populateFiles {"files":{"/404.html":"daa499dd96d8229e73235345702ba32f0793f0c8e5c0d30e40e37a5872be57aa","/asset-manifest.json":"640ab5958133859be71288b812e8caaed433d5c4e83ebf33667e75958a509584","/index.html":"2bbc664f3fd62c15cb2cb53db78134356ec27310748dccfdb73da0f69e7c7de1","/static/css/main.1d766016.css":"c1d947e556d6f0b0e2e3982f044b88bf4bd2368721c5c1eef499411454b2056e","/static/css/main.1d766016.css.map":"2d2f33f9eec66953139f395e0199aa5ca29dbc0babb5c8d529d0b6e19b044841","/static/js/main.229966a5.js.LICENSE.txt":"4ad66d76d451d95385fbb304ae28b81822e40acef41ad03291e6a2a0cdc00a06","/static/js/main.229966a5.js":"62b1fe667eed805491d5c17563c5b3afd5c9e79f62133d56c775a06962a0767e","/static/js/main.229966a5.js.map":"115d4c612be20bea60fb10f2ba4ec7d2b2e4f0ac753328bc09cffcadcba973bb"}}
+[debug] [2022-11-29T13:18:08.270Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/131150866049/sites/sal-fire/versions/35589efa70d78e99:populateFiles 200
+[debug] [2022-11-29T13:18:08.270Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/131150866049/sites/sal-fire/versions/35589efa70d78e99:populateFiles {"uploadRequiredHashes":["640ab5958133859be71288b812e8caaed433d5c4e83ebf33667e75958a509584","2bbc664f3fd62c15cb2cb53db78134356ec27310748dccfdb73da0f69e7c7de1","c1d947e556d6f0b0e2e3982f044b88bf4bd2368721c5c1eef499411454b2056e","2d2f33f9eec66953139f395e0199aa5ca29dbc0babb5c8d529d0b6e19b044841","4ad66d76d451d95385fbb304ae28b81822e40acef41ad03291e6a2a0cdc00a06","62b1fe667eed805491d5c17563c5b3afd5c9e79f62133d56c775a06962a0767e","115d4c612be20bea60fb10f2ba4ec7d2b2e4f0ac753328bc09cffcadcba973bb"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files"}
+[debug] [2022-11-29T13:18:08.283Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/640ab5958133859be71288b812e8caaed433d5c4e83ebf33667e75958a509584 [none]
+[debug] [2022-11-29T13:18:08.283Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/640ab5958133859be71288b812e8caaed433d5c4e83ebf33667e75958a509584 [stream]
+[debug] [2022-11-29T13:18:08.290Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/2bbc664f3fd62c15cb2cb53db78134356ec27310748dccfdb73da0f69e7c7de1 [none]
+[debug] [2022-11-29T13:18:08.290Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/2bbc664f3fd62c15cb2cb53db78134356ec27310748dccfdb73da0f69e7c7de1 [stream]
+[debug] [2022-11-29T13:18:08.297Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/c1d947e556d6f0b0e2e3982f044b88bf4bd2368721c5c1eef499411454b2056e [none]
+[debug] [2022-11-29T13:18:08.298Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/c1d947e556d6f0b0e2e3982f044b88bf4bd2368721c5c1eef499411454b2056e [stream]
+[debug] [2022-11-29T13:18:08.304Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/2d2f33f9eec66953139f395e0199aa5ca29dbc0babb5c8d529d0b6e19b044841 [none]
+[debug] [2022-11-29T13:18:08.304Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/2d2f33f9eec66953139f395e0199aa5ca29dbc0babb5c8d529d0b6e19b044841 [stream]
+[debug] [2022-11-29T13:18:08.310Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/4ad66d76d451d95385fbb304ae28b81822e40acef41ad03291e6a2a0cdc00a06 [none]
+[debug] [2022-11-29T13:18:08.310Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/4ad66d76d451d95385fbb304ae28b81822e40acef41ad03291e6a2a0cdc00a06 [stream]
+[debug] [2022-11-29T13:18:08.316Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/62b1fe667eed805491d5c17563c5b3afd5c9e79f62133d56c775a06962a0767e [none]
+[debug] [2022-11-29T13:18:08.317Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/62b1fe667eed805491d5c17563c5b3afd5c9e79f62133d56c775a06962a0767e [stream]
+[debug] [2022-11-29T13:18:08.322Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/115d4c612be20bea60fb10f2ba4ec7d2b2e4f0ac753328bc09cffcadcba973bb [none]
+[debug] [2022-11-29T13:18:08.322Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/115d4c612be20bea60fb10f2ba4ec7d2b2e4f0ac753328bc09cffcadcba973bb [stream]
+[debug] [2022-11-29T13:18:08.327Z] [hosting][populate queue][FINAL] {"max":1335,"min":1335,"avg":1335,"active":0,"complete":1,"success":1,"errored":0,"retried":3,"total":1,"elapsed":67233}
+[debug] [2022-11-29T13:18:08.328Z] [hosting] uploads queued: 7
+[debug] [2022-11-29T13:18:20.332Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/640ab5958133859be71288b812e8caaed433d5c4e83ebf33667e75958a509584 200
+[debug] [2022-11-29T13:18:20.333Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/640ab5958133859be71288b812e8caaed433d5c4e83ebf33667e75958a509584 [stream]
+[debug] [2022-11-29T13:18:24.753Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/62b1fe667eed805491d5c17563c5b3afd5c9e79f62133d56c775a06962a0767e 200
+[debug] [2022-11-29T13:18:24.754Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/62b1fe667eed805491d5c17563c5b3afd5c9e79f62133d56c775a06962a0767e [stream]
+[debug] [2022-11-29T13:18:29.790Z] [uploadQueue] Retrying task c1d947e556d6f0b0e2e3982f044b88bf4bd2368721c5c1eef499411454b2056e
+[debug] [2022-11-29T13:18:29.795Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/c1d947e556d6f0b0e2e3982f044b88bf4bd2368721c5c1eef499411454b2056e [none]
+[debug] [2022-11-29T13:18:29.795Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/c1d947e556d6f0b0e2e3982f044b88bf4bd2368721c5c1eef499411454b2056e [stream]
+[debug] [2022-11-29T13:18:29.801Z] [uploadQueue] Retrying task 2bbc664f3fd62c15cb2cb53db78134356ec27310748dccfdb73da0f69e7c7de1
+[debug] [2022-11-29T13:18:29.802Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/2bbc664f3fd62c15cb2cb53db78134356ec27310748dccfdb73da0f69e7c7de1 [none]
+[debug] [2022-11-29T13:18:29.803Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/2bbc664f3fd62c15cb2cb53db78134356ec27310748dccfdb73da0f69e7c7de1 [stream]
+[debug] [2022-11-29T13:18:29.811Z] [uploadQueue] Retrying task 2d2f33f9eec66953139f395e0199aa5ca29dbc0babb5c8d529d0b6e19b044841
+[debug] [2022-11-29T13:18:29.813Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/2d2f33f9eec66953139f395e0199aa5ca29dbc0babb5c8d529d0b6e19b044841 [none]
+[debug] [2022-11-29T13:18:29.814Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/2d2f33f9eec66953139f395e0199aa5ca29dbc0babb5c8d529d0b6e19b044841 [stream]
+[debug] [2022-11-29T13:18:29.819Z] [uploadQueue] Retrying task 4ad66d76d451d95385fbb304ae28b81822e40acef41ad03291e6a2a0cdc00a06
+[debug] [2022-11-29T13:18:29.821Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/4ad66d76d451d95385fbb304ae28b81822e40acef41ad03291e6a2a0cdc00a06 [none]
+[debug] [2022-11-29T13:18:29.822Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/4ad66d76d451d95385fbb304ae28b81822e40acef41ad03291e6a2a0cdc00a06 [stream]
+[debug] [2022-11-29T13:18:29.828Z] [uploadQueue] Retrying task 115d4c612be20bea60fb10f2ba4ec7d2b2e4f0ac753328bc09cffcadcba973bb
+[debug] [2022-11-29T13:18:29.830Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/115d4c612be20bea60fb10f2ba4ec7d2b2e4f0ac753328bc09cffcadcba973bb [none]
+[debug] [2022-11-29T13:18:29.831Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/115d4c612be20bea60fb10f2ba4ec7d2b2e4f0ac753328bc09cffcadcba973bb [stream]
+[debug] [2022-11-29T13:18:31.496Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/115d4c612be20bea60fb10f2ba4ec7d2b2e4f0ac753328bc09cffcadcba973bb 200
+[debug] [2022-11-29T13:18:31.496Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/115d4c612be20bea60fb10f2ba4ec7d2b2e4f0ac753328bc09cffcadcba973bb [stream]
+[debug] [2022-11-29T13:18:33.853Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/4ad66d76d451d95385fbb304ae28b81822e40acef41ad03291e6a2a0cdc00a06 200
+[debug] [2022-11-29T13:18:33.854Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/4ad66d76d451d95385fbb304ae28b81822e40acef41ad03291e6a2a0cdc00a06 [stream]
+[debug] [2022-11-29T13:18:51.657Z] [uploadQueue] Retrying task c1d947e556d6f0b0e2e3982f044b88bf4bd2368721c5c1eef499411454b2056e
+[debug] [2022-11-29T13:18:51.659Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/c1d947e556d6f0b0e2e3982f044b88bf4bd2368721c5c1eef499411454b2056e [none]
+[debug] [2022-11-29T13:18:51.660Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/c1d947e556d6f0b0e2e3982f044b88bf4bd2368721c5c1eef499411454b2056e [stream]
+[debug] [2022-11-29T13:18:51.664Z] [uploadQueue] Retrying task 2d2f33f9eec66953139f395e0199aa5ca29dbc0babb5c8d529d0b6e19b044841
+[debug] [2022-11-29T13:18:51.666Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/2d2f33f9eec66953139f395e0199aa5ca29dbc0babb5c8d529d0b6e19b044841 [none]
+[debug] [2022-11-29T13:18:51.666Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/2d2f33f9eec66953139f395e0199aa5ca29dbc0babb5c8d529d0b6e19b044841 [stream]
+[debug] [2022-11-29T13:18:51.674Z] [uploadQueue] Retrying task 2bbc664f3fd62c15cb2cb53db78134356ec27310748dccfdb73da0f69e7c7de1
+[debug] [2022-11-29T13:18:51.676Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/2bbc664f3fd62c15cb2cb53db78134356ec27310748dccfdb73da0f69e7c7de1 [none]
+[debug] [2022-11-29T13:18:51.676Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/2bbc664f3fd62c15cb2cb53db78134356ec27310748dccfdb73da0f69e7c7de1 [stream]
+[debug] [2022-11-29T13:18:53.981Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/c1d947e556d6f0b0e2e3982f044b88bf4bd2368721c5c1eef499411454b2056e 200
+[debug] [2022-11-29T13:18:53.982Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/c1d947e556d6f0b0e2e3982f044b88bf4bd2368721c5c1eef499411454b2056e [stream]
+[debug] [2022-11-29T13:18:56.025Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/2d2f33f9eec66953139f395e0199aa5ca29dbc0babb5c8d529d0b6e19b044841 200
+[debug] [2022-11-29T13:18:56.025Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/2d2f33f9eec66953139f395e0199aa5ca29dbc0babb5c8d529d0b6e19b044841 [stream]
+[debug] [2022-11-29T13:19:14.291Z] [uploadQueue] Retrying task 2bbc664f3fd62c15cb2cb53db78134356ec27310748dccfdb73da0f69e7c7de1
+[debug] [2022-11-29T13:19:14.297Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/2bbc664f3fd62c15cb2cb53db78134356ec27310748dccfdb73da0f69e7c7de1 [none]
+[debug] [2022-11-29T13:19:14.297Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/2bbc664f3fd62c15cb2cb53db78134356ec27310748dccfdb73da0f69e7c7de1 [stream]
+[debug] [2022-11-29T13:19:15.664Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/2bbc664f3fd62c15cb2cb53db78134356ec27310748dccfdb73da0f69e7c7de1 200
+[debug] [2022-11-29T13:19:15.665Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/sal-fire/versions/35589efa70d78e99/files/2bbc664f3fd62c15cb2cb53db78134356ec27310748dccfdb73da0f69e7c7de1 [stream]
+[debug] [2022-11-29T13:19:15.665Z] [hosting][upload queue][FINAL] {"max":16474,"min":1373,"avg":6042.714285714285,"active":0,"complete":7,"success":7,"errored":0,"retried":9,"total":7,"elapsed":67394}
+[info] +  hosting[sal-fire]: file upload complete 
+[debug] [2022-11-29T13:19:15.670Z] [hosting] deploy completed after 135235ms
+[debug] [2022-11-29T13:19:15.681Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "site": "sal-fire"
+    },
+    "version": "projects/131150866049/sites/sal-fire/versions/35589efa70d78e99"
+  }
+]
+[info] i  hosting[sal-fire]: finalizing version... 
+[debug] [2022-11-29T13:19:15.694Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/sal-fire/versions/35589efa70d78e99 updateMask=status%2Cconfig
+[debug] [2022-11-29T13:19:15.695Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/sal-fire/versions/35589efa70d78e99 {"status":"FINALIZED","config":{}}
+[debug] [2022-11-29T13:19:16.975Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/sal-fire/versions/35589efa70d78e99 200
+[debug] [2022-11-29T13:19:16.975Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/sal-fire/versions/35589efa70d78e99 {"name":"projects/131150866049/sites/sal-fire/versions/35589efa70d78e99","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-11-29T13:16:45.335245Z","createUser":{"email":"orel.asc11@gmail.com"},"finalizeTime":"2022-11-29T13:19:16.810706Z","finalizeUser":{"email":"orel.asc11@gmail.com"}}
+[debug] [2022-11-29T13:19:16.976Z] [hosting] finalized version for sal-fire:[object Object]
+[info] +  hosting[sal-fire]: version finalized 
+[info] i  hosting[sal-fire]: releasing new version... 
+[debug] [2022-11-29T13:19:16.980Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/sal-fire/channels/live/releases versionName=projects%2F131150866049%2Fsites%2Fsal-fire%2Fversions%2F35589efa70d78e99
+[debug] [2022-11-29T13:19:16.981Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/sal-fire/channels/live/releases {}
+[debug] [2022-11-29T13:19:19.321Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/sal-fire/channels/live/releases 200
+[debug] [2022-11-29T13:19:19.322Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/sal-fire/channels/live/releases {"name":"projects/131150866049/sites/sal-fire/channels/live/releases/1669727958540138","version":{"name":"projects/131150866049/sites/sal-fire/versions/35589efa70d78e99","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-11-29T13:16:45.335245Z","createUser":{"email":"orel.asc11@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu0bjXK_uQPYQ0w4qVWzPcvwGNI0IJe19WiKj1LTwg"},"finalizeTime":"2022-11-29T13:19:16.810706Z","finalizeUser":{"email":"orel.asc11@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu0bjXK_uQPYQ0w4qVWzPcvwGNI0IJe19WiKj1LTwg"}},"type":"DEPLOY","releaseTime":"2022-11-29T13:19:18.540138383Z","releaseUser":{"email":"orel.asc11@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu0bjXK_uQPYQ0w4qVWzPcvwGNI0IJe19WiKj1LTwg"}}
+[debug] [2022-11-29T13:19:19.322Z] [hosting] release: {"name":"projects/131150866049/sites/sal-fire/channels/live/releases/1669727958540138","version":{"name":"projects/131150866049/sites/sal-fire/versions/35589efa70d78e99","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-11-29T13:16:45.335245Z","createUser":{"email":"orel.asc11@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu0bjXK_uQPYQ0w4qVWzPcvwGNI0IJe19WiKj1LTwg"},"finalizeTime":"2022-11-29T13:19:16.810706Z","finalizeUser":{"email":"orel.asc11@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu0bjXK_uQPYQ0w4qVWzPcvwGNI0IJe19WiKj1LTwg"}},"type":"DEPLOY","releaseTime":"2022-11-29T13:19:18.540138383Z","releaseUser":{"email":"orel.asc11@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu0bjXK_uQPYQ0w4qVWzPcvwGNI0IJe19WiKj1LTwg"}}
+[info] +  hosting[sal-fire]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/sal-fire/overview
+[info] Hosting URL: https://sal-fire.web.app
+[debug] [2022-11-29T13:19:50.372Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\user\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:253:49)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+[error] 
+[error] Error: An unexpected error has occurred.
